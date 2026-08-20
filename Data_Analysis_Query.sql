@@ -16,6 +16,7 @@
 -- CAST(SUM(total_laid_off)AS INT) AS total_laid_off,
 -- CAST(ROUND(AVG(percentage_laid_off)*100, 2) AS DECIMAL(10, 2)) AS avg_laid_off
 -- FROM layoffs_clean_test
+-- WHERE industry != 'Other'
 -- GROUP BY industry
 -- ORDER BY total_laid_off DESC
 
@@ -32,6 +33,7 @@
 -- CAST(ROUND(AVG(percentage_laid_off)*100, 2) AS DECIMAL(10, 2)) AS avg_laid_off,
 -- YEAR(date) AS Year
 -- FROM layoffs_clean_test
+-- WHERE industry != 'Other'
 -- GROUP BY YEAR(date), industry
 -- ORDER BY industry, YEAR(date) ASC
 
@@ -42,38 +44,45 @@
 -- COUNT( DISTINCT company) AS company_count,
 -- YEAR(date) AS year
 -- FROM layoffs_clean_test
--- WHERE percentage_laid_off > 0.99
+-- WHERE percentage_laid_off > 0.99 AND industry != 'Other'
 -- GROUP BY industry, YEAR(date)
 -- ORDER BY industry
 
---All of the company layoffs minus companies that shutdown
+--All of the industry layoffs where more than five companies reported layoffs, excluding companies that shutdown 
+-- WITH industry_year_breakdown AS (
 -- SELECT 
 -- industry,
 -- COUNT(DISTINCT company) AS num_of_companies,
--- CAST(SUM(CASE WHEN total_laid_off IS NOT NULL THEN total_laid_off ELSE 0 END)AS INT) AS total_laid_off,
--- CAST(ROUND(AVG(CASE WHEN percentage_laid_off IS NOT NULL THEN percentage_laid_off ELSE 0 END)*100, 2) AS DECIMAL(10, 2)) AS avg_laid_off,
+-- CAST(SUM(total_laid_off )AS INT) AS total_laid_off,
+-- CAST(ROUND(AVG(percentage_laid_off)*100, 2) AS DECIMAL(10, 2)) AS avg_laid_off,
 -- YEAR(date) AS Year
 -- FROM layoffs_clean_test
--- WHERE percentage_laid_off < 0.99
+-- WHERE percentage_laid_off < 0.99 AND industry != 'Other'
 -- GROUP BY YEAR(date), industry
--- ORDER BY industry, YEAR(date) ASC
+-- )
 
+-- SELECT *
+-- FROM industry_year_breakdown
+-- WHERE num_of_companies > 5
+-- ORDER BY industry, YEAR ASC
 
 --------------------------------------------------------------------------------------------------------------------
 
 --Query Group 3
 
 
---Total and percent of layoffs broken down per country from 2020 through 2026
+--Total and percent of layoffs broken down per country from 2020 through 2026 excluding shutdowns
 -- SELECT
 -- country,
 -- COUNT(DISTINCT company) AS num_of_companies,
 -- CAST(SUM(total_laid_off)AS INT) AS total_laid_off,
 -- CAST(ROUND(AVG(percentage_laid_off)*100, 2) AS DECIMAL(10, 2)) AS avg_laid_off
 -- FROM layoffs_clean_test
+-- WHERE industry != 'Other' AND percentage_laid_off < 0.99
 -- GROUP BY country
 
 
+--Number of shut down companies per country
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
