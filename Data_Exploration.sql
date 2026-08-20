@@ -5,7 +5,7 @@
 
 -------------------------------------------------------------------------------------------------------------
 
---Query 1 Exploration
+--Query Group 1 Exploration
 
 --Noticed that Hardware had the 3rd most layoffs at 106k despite only having 38 companies
 --Results: A query and found Dell and HP made up 60% with 43k and 23k respectively 
@@ -22,7 +22,7 @@
 
 -------------------------------------------------------------------------------------
 
---Query 2 Exploration
+--Query Group 2 Exploration
 
 -- Noticed: That when layoff percentages where averaged, some years of industries had a 100 percent 
 -- Results: Over the 6 years of the avalibale data, 349 companies had a 100 percent layoff percentage, which almost certianly iducated 349 shutdown comapnies
@@ -46,13 +46,13 @@
 -- ORDER BY YEAR(date)
 
 
---A check to see how the number of shutdown companies per industry per year 
-SELECT
-industry,
-COUNT( DISTINCT company) AS company_count,
-YEAR(date) AS year
-FROM layoffs_clean_test
-WHERE percentage_laid_off > 0.99
-GROUP BY industry, YEAR(date)
-ORDER BY industry
+--A check to see how the number of shutdown companies per industry per year, became a part of the main analysis
+-- SELECT
+-- industry,
+-- COUNT( DISTINCT company) AS company_count,
+-- YEAR(date) AS year
+-- FROM layoffs_clean_test
+-- WHERE percentage_laid_off > 0.99
+-- GROUP BY industry, YEAR(date)
+-- ORDER BY industry
 
