@@ -71,7 +71,8 @@
 --Query Group 3
 
 
---Total and percent of layoffs broken down per country from 2020 through 2026 excluding shutdowns
+--Total and percent of layoffs broken down per country from 2020 through 2026 excluding shutdowns and where the number of companies reporting is greater than 5
+-- WITH country_layoffs AS (
 -- SELECT
 -- country,
 -- COUNT(DISTINCT company) AS num_of_companies,
@@ -80,9 +81,22 @@
 -- FROM layoffs_clean_test
 -- WHERE industry != 'Other' AND percentage_laid_off < 0.99
 -- GROUP BY country
+-- )
+
+-- SELECT *
+-- FROM country_layoffs
+-- WHERE num_of_companies > 5
 
 
 --Number of shut down companies per country
+SELECT
+country,
+COUNT(DISTINCT company) AS num_of_companies,
+CAST(SUM(total_laid_off)AS INT) AS total_laid_off
+FROM layoffs_clean_test
+WHERE industry != 'Other' AND percentage_laid_off > 0.99
+GROUP BY country
+
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
