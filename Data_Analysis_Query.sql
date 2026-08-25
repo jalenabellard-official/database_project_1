@@ -86,16 +86,17 @@
 -- SELECT *
 -- FROM country_layoffs
 -- WHERE num_of_companies > 5
+-- WHERE num_of_companies > 5 AND total_laid_off > 10000  --WHERE statment for Substantial Layoffs
 
 
 --Number of shut down companies per country
-SELECT
-country,
-COUNT(DISTINCT company) AS num_of_companies,
-CAST(SUM(total_laid_off)AS INT) AS total_laid_off
-FROM layoffs_clean_test
-WHERE industry != 'Other' AND percentage_laid_off > 0.99
-GROUP BY country
+-- SELECT
+-- country,
+-- COUNT(DISTINCT company) AS num_of_companies,
+-- CAST(SUM(total_laid_off)AS INT) AS total_laid_off
+-- FROM layoffs_clean_test
+-- WHERE industry != 'Other' AND percentage_laid_off > 0.99
+-- GROUP BY country
 
 
 ----------------------------------------------------------------------------------------------------------------------------------

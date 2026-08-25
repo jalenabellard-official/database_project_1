@@ -1,11 +1,11 @@
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
 
-df = pd.read_csv('layoffs_working_file.csv')
+# df = pd.read_csv('data/layoffs_working_file.csv')
 
-print(df["company"].str.len().max())
-print(df["location"].str.len().max())
-print(df["industry"].str.len().max())
+# print(df["company"].str.len().max())
+# print(df["location"].str.len().max())
+# print(df["industry"].str.len().max())
 
 #print(df.shape)
 

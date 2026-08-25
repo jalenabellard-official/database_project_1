@@ -5,7 +5,6 @@
 
 -------------------------------------------------------------------------------------------------------------
 
---Query Group 1 Exploration
 
 --Noticed that Hardware had the 3rd most layoffs at 106k despite only having 38 companies
 --Results: A query and found Dell and HP made up 60% with 43k and 23k respectively 
@@ -22,7 +21,6 @@
 
 -------------------------------------------------------------------------------------
 
---Query Group 2 Exploration
 
 -- Noticed: That when layoff percentages where averaged, some years of industries had a 100 percent 
 -- Results: Over the 6 years of the avalibale data, 349 companies had a 100 percent layoff percentage, which almost certianly iducated 349 shutdown comapnies
@@ -34,7 +32,7 @@
 -- FROM layoffs_clean_test
 -- WHERE percentage_laid_off > 0.99
 
-
+--------------------------------------------------------------------------------------------------------
 
 --A check to see how many companies shut down per year, 2023 is the clear winner at 105 with the second closet being 2024 at 85
 -- SELECT
@@ -44,6 +42,9 @@
 -- WHERE percentage_laid_off > 0.99
 -- GROUP BY YEAR(date)
 -- ORDER BY YEAR(date)
+
+
+----------------------------------------------------------------------------------------------------------
 
 
 --A check to see how the number of shutdown companies per industry per year, became a part of the main analysis
