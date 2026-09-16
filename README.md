@@ -63,7 +63,7 @@ CREATE TABLE layoffs (
 
 This is a dashboard displaying data relevant to many of the key findings recorded in the write up, with some extra visuals to help contextualize the key findings. 
 
-![Static Overview](images/dashboard_static.png)
+![Static Overview](images/dashboard_overview.png)
 
 ![Interaction Demo](images/dashboard_demo.gif)
 
