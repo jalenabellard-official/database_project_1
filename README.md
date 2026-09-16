@@ -57,3 +57,14 @@ CREATE TABLE layoffs (
     country VARCHAR(255)
 )
 ```
+---
+
+## Global Tech Layoffs 2020-2026 Dashboard
+
+This is a dashboard displaying data relevant to many of the key findings recorded in the write up, with some extra visuals to help contextualize the key findings. 
+
+![Static Overview](images/dashboard_static.png)
+
+![Interaction Demo](images/dashboard_demo.gif)
+
+**Tools:** Power BI, SQL Server, Power Query
